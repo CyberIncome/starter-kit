@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://cyberincomeinnovators.com/sitemap.xml, https://cyberincomeinnovators.com/rss.xml
