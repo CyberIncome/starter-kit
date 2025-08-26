@@ -67,7 +67,7 @@ export const Header = () => {
 					</div>
 				</div>
 				<div className="col-span-2 flex flex-row items-center justify-end lg:col-span-3">
-					<div className="flex items-center gap-3 lg:gap-5 text-slate-300 bg-black bg-opacity-60 p-2 rounded">
+					<div className="flex items-center gap-3 lg:gap-5 text-slate-300 bg-black bg-opacity-70 p-2 rounded-full">
 						{navList}
 						<DarkModeToggle />
 					</div>
