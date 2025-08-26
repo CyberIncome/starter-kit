@@ -154,8 +154,8 @@ export const getServerSideProps: GetServerSideProps<DebugPageProps> = async () =
 			request(endpoint, postsQuery, { host, first: 20 }) as any,
 		]);
 
-		const staticPages = (staticPagesData.publication?.staticPages.edges ?? []).map((edge) => edge.node);
-		const posts = (postsData.publication?.posts.edges ?? []).map((edge) => edge.node);
+		const staticPages = (staticPagesData.publication?.staticPages.edges ?? []).map((edge: any) => edge.node);
+		const posts = (postsData.publication?.posts.edges ?? []).map((edge: any) => edge.node);
 
 		return {
 			props: {
