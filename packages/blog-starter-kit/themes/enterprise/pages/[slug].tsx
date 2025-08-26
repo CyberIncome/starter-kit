@@ -256,8 +256,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	const staticPagesData = await request(endpoint, staticPagesQuery, { host }) as any;
 
-	const postSlugs = (postsData.publication?.posts.edges ?? []).map((edge) => edge.node.slug);
-	const staticPageSlugs = (staticPagesData.publication?.staticPages.edges ?? []).map((edge) => edge.node.slug);
+	const postSlugs = (postsData.publication?.posts.edges ?? []).map((edge: any) => edge.node.slug);
+	const staticPageSlugs = (staticPagesData.publication?.staticPages.edges ?? []).map((edge: any) => edge.node.slug);
 
 	// Combine both post and static page slugs
 	const allSlugs = [...postSlugs, ...staticPageSlugs];
