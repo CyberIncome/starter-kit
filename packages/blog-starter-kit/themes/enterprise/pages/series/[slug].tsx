@@ -36,26 +36,26 @@ export default function Post({ series, publication, posts }: Props) {
 				</Head>
 				<Header />
 				<Container className="flex flex-col items-stretch gap-10 px-5 pb-10">
-					<div className="pt-5">
-						<div className="mb-6">
-							<p className="font-bold uppercase text-slate-500 dark:text-neutral-400">Series</p>
-							<h1 className="text-4xl font-bold text-slate-900 dark:text-neutral-50">
+					<div className="pt-10">
+						<div className="mb-8">
+							<p className="font-bold uppercase text-slate-500 dark:text-neutral-400 mb-2">Series</p>
+							<h1 className="text-5xl font-bold text-slate-900 dark:text-neutral-50 mb-6">
 								{series.name}
 							</h1>
 							<div
-								className="hashnode-content-style mt-4"
+								className="hashnode-content-style text-lg leading-relaxed text-slate-700 dark:text-neutral-300"
 								dangerouslySetInnerHTML={{ __html: series.description?.html ?? '' }}
 							></div>
 						</div>
 						{series.coverImage && (
-							<div className="mb-6 max-w-2xl">
+							<div className="mb-8 max-w-4xl mx-auto">
 								<CoverImage
 									title={series.name}
 									src={resizeImage(
 										series.coverImage,
 										{
-											w: 800,
-											h: 400,
+											w: 1200,
+											h: 600,
 											c: 'thumb',
 										},
 										DEFAULT_COVER,

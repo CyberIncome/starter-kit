@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { useAppContext } from './contexts/appContext';
@@ -14,41 +13,20 @@ type Props = {
 
 function PublicationSidebar(props: Props) {
 	const { toggleSidebar, navbarItems } = props;
-	const [isMounted, setIsMounted] = useState(false);
 	const { publication } = useAppContext();
 	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '');
-
-	useEffect(() => {
-		setIsMounted(true);
-	}, []);
-
-	// Handle escape key
-	useEffect(() => {
-		const handleEscape = (e: KeyboardEvent) => {
-			if (e.key === 'Escape') {
-				toggleSidebar();
-			}
-		};
-
-		document.addEventListener('keydown', handleEscape);
-		return () => document.removeEventListener('keydown', handleEscape);
-	}, [toggleSidebar]);
 
 	return (
 		<>
 			{/* Overlay */}
 			<div 
-				className={`fixed inset-0 z-50 bg-slate-900 transition-opacity duration-300 ease-out ${
-					isMounted ? 'opacity-50' : 'opacity-0'
-				}`}
+				className="fixed inset-0 z-50 bg-slate-900 opacity-50"
 				onClick={toggleSidebar}
 			/>
 			
 			{/* Sidebar */}
 			<div 
-				className={`fixed bottom-0 left-0 top-0 z-50 flex w-80 transform flex-col bg-white shadow-2xl transition-transform duration-300 ease-out dark:border-neutral-800 dark:bg-neutral-950 ${
-					isMounted ? 'translate-x-0' : '-translate-x-96'
-				}`}
+				className="fixed bottom-0 left-0 top-0 z-50 flex w-80 flex-col bg-white shadow-2xl dark:border-neutral-800 dark:bg-neutral-950"
 			>
 				<div className="blog-sidebar-header w-full shrink-0 py-6">
 					<div className="flex items-center justify-between pl-8 pr-4">
