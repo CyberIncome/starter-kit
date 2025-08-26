@@ -66,7 +66,7 @@ export const Header = () => {
 						<PublicationLogo />
 					</div>
 				</div>
-				<div className="col-span-2 flex flex-row items-center justify-end gap-3 lg:gap-5 text-slate-300 lg:col-span-3">
+				<div className="col-span-2 flex flex-row items-center justify-end gap-3 lg:gap-5 text-slate-300 lg:col-span-3 bg-black bg-opacity-50 p-2 rounded">
 					{navList}
 					<DarkModeToggle />
 				</div>
