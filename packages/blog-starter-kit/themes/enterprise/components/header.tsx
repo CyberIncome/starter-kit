@@ -88,7 +88,7 @@ export const Header = () => {
 	);
 
 	return (
-		<header className="border-b bg-slate-950 py-10 dark:border-neutral-800 dark:bg-neutral-900">
+		<header className="border-b bg-slate-950 py-6 lg:py-10 dark:border-neutral-800 dark:bg-neutral-900">
 			<Container className="grid grid-cols-4 gap-5 px-5">
 				<div className="col-span-2 flex flex-1 flex-row items-center gap-2 lg:col-span-1">
 					<div className="lg:hidden">
@@ -108,15 +108,13 @@ export const Header = () => {
 						<PublicationLogo />
 					</div>
 				</div>
-				<div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
+				<div className="col-span-2 flex flex-row items-center justify-end gap-3 lg:gap-5 text-slate-300 lg:col-span-3">
 					{navList}
 					<DarkModeToggle />
 				</div>
 			</Container>
-			<div className="mt-5 flex justify-center lg:hidden">
+			<div className="mt-4 flex flex-col items-center gap-4 lg:hidden">
 				<PublicationLogo />
-			</div>
-			<div className="mt-5 flex justify-center lg:hidden">
 				<DarkModeToggle />
 			</div>
 		</header>
