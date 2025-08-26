@@ -1,0 +1,20 @@
+query StaticPagesByPublication($host: String!, $first: Int!) {
+	publication(host: $host) {
+		staticPages(first: $first) {
+			edges {
+				node {
+					...StaticPage
+				}
+			}
+		}
+	}
+}
+
+fragment StaticPage on StaticPage {
+	id
+	title
+	slug
+	content {
+		markdown
+	}
+}

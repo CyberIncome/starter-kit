@@ -226,19 +226,44 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) 
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const data = await request(
-		process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT,
+	const endpoint = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
+	const host = process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST;
+
+	// Fetch posts
+	const postsData = await request(
+		endpoint,
 		SlugPostsByPublicationDocument,
 		{
 			first: 10,
-			host: process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_HOST,
+			host: host,
 		},
 	);
 
-	const postSlugs = (data.publication?.posts.edges ?? []).map((edge) => edge.node.slug);
+	// Fetch static pages using a simple query
+	const staticPagesQuery = `
+		query StaticPagesByPublication($host: String!) {
+			publication(host: $host) {
+				staticPages(first: 50) {
+					edges {
+						node {
+							slug
+						}
+					}
+				}
+			}
+		}
+	`;
+
+	const staticPagesData = await request(endpoint, staticPagesQuery, { host });
+
+	const postSlugs = (postsData.publication?.posts.edges ?? []).map((edge) => edge.node.slug);
+	const staticPageSlugs = (staticPagesData.publication?.staticPages.edges ?? []).map((edge) => edge.node.slug);
+
+	// Combine both post and static page slugs
+	const allSlugs = [...postSlugs, ...staticPageSlugs];
 
 	return {
-		paths: postSlugs.map((slug) => {
+		paths: allSlugs.map((slug) => {
 			return {
 				params: {
 					slug: slug,
