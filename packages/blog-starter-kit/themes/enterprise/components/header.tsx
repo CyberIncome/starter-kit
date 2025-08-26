@@ -39,9 +39,9 @@ export const Header = () => {
 			{allNavItems.map((item) => (
 				<li key={item.url}>
 					<a
-						href={item.url}
-						className="transition-200 block rounded-full px-3 py-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
-					>
+							href={item.url}
+							className="transition-200 block rounded-full px-3 py-1 text-sm transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
+						>
 						{item.label}
 					</a>
 				</li>
@@ -67,7 +67,7 @@ export const Header = () => {
 					</div>
 				</div>
 				<div className="col-span-2 flex flex-row items-center justify-end lg:col-span-3">
-					<div className="flex items-center gap-3 lg:gap-5 text-slate-300 bg-black bg-opacity-70 p-2 rounded-full">
+					<div className="flex items-center gap-3 lg:gap-5 text-slate-300 bg-black bg-opacity-70 p-1 rounded-full">
 						{navList}
 						<DarkModeToggle />
 					</div>
