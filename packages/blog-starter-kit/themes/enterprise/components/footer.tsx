@@ -7,7 +7,7 @@ export const Footer = () => {
 	const { publication } = useAppContext();
 	const PUBLICATION_LOGO = publication.preferences.logo;
 	return (
-		// <footer className="border-t py-20 dark:border-neutral-800 ">
+		 <footer className="border-t py-20 dark:border-neutral-800 ">
 		// 	<Container className="px-5">
 		// 		{PUBLICATION_LOGO ? (
 		// 			// <div className="mb-20 flex w-full flex-row justify-center">
@@ -142,8 +142,8 @@ export const Footer = () => {
 							</a> */}
 						</p>
 					</div>
-				</div>
-			</Container>
+		//		</div>
+		//	</Container>
 		</footer>
 	);
 };
