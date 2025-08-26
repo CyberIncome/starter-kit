@@ -57,7 +57,7 @@ export default async function handler(req: NextRequest) {
 		meta = decodeURIComponent(encodedMeta);
 	}
 
-	const bannerBackground = '#f1f5f9';
+	const bannerBackground = '#18181b';
 	const photo = userPhoto || DEFAULT_AVATAR;
 
 	return new ImageResponse(
@@ -66,7 +66,7 @@ export default async function handler(req: NextRequest) {
 				style={{
 					fontFamily: '"Plus Jakarta Sans"',
 				}}
-				tw={`relative flex h-full w-full p-8 bg-white`}
+				tw={`relative flex h-full w-full p-8 bg-black`}
 			>
 				{/* PERSONAL BLOG The following parent div is for personal blogs */}
 				{/* if the site is set to open in dark mode by default, change text-black to text-white and bg-white to bg-black */}

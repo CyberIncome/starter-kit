@@ -10,15 +10,15 @@ export const Footer = () => {
 		<footer className="border-t py-20 dark:border-neutral-800 ">
 			<Container className="px-5">
 				{PUBLICATION_LOGO ? (
-					<div className="mb-20 flex w-full flex-row justify-center">
-						<Link
-							href={'/'}
-							aria-label={`${publication.title} home page`}
-							className="flex flex-row items-center gap-5"
-						>
-							<img className="block w-40" src={PUBLICATION_LOGO} alt={publication.title} />
-						</Link>
-					</div>
+					// <div className="mb-20 flex w-full flex-row justify-center">
+					// 	<Link
+					// 		href={'/'}
+					// 		aria-label={`${publication.title} home page`}
+					// 		className="flex flex-row items-center gap-5"
+					// 	>
+					// 		<img className="block w-40" src={PUBLICATION_LOGO} alt={publication.title} />
+					// 	</Link>
+					// </div>
 				) : (
 					<p className="mb-20 text-center text-xl font-semibold text-slate-900 dark:text-slate-50 md:text-4xl">
 						{publication.title}
@@ -31,29 +31,29 @@ export const Footer = () => {
 								Stay in touch
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
-								<li>
+								{/* <li>
 									<a href="#" className="hover:underline">
 										Contact us
 									</a>
-								</li>
-								<li>
+								</li> */}
+								{/* <li>
 									<a href="#" className="hover:underline">
 										Book a demo
 									</a>
-								</li>
-								<li>
+								</li> */}
+								{/* <li>
 									<a href="#" className="hover:underline">
 										Newsletter
 									</a>
-								</li>
-								<li>
+								</li> */}
+								{/* <li>
 									<a href="#" className="hover:underline">
 										Slack
 									</a>
-								</li>
+								</li> */}
 							</ul>
 						</div>
-						<div className="col-span-full md:col-span-2 lg:col-span-1">
+						{/* <div className="col-span-full md:col-span-2 lg:col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">Resources</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
@@ -77,8 +77,8 @@ export const Footer = () => {
 									</a>
 								</li>
 							</ul>
-						</div>
-						<div className="col-span-full md:col-span-2 lg:col-span-1">
+						</div> */}
+						{/* <div className="col-span-full md:col-span-2 lg:col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">Product</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
@@ -102,8 +102,8 @@ export const Footer = () => {
 									</a>
 								</li>
 							</ul>
-						</div>
-						<div className="col-span-1">
+						</div> */}
+						{/* <div className="col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">Other links</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
@@ -128,18 +128,18 @@ export const Footer = () => {
 								</li>
 							</ul>
 						</div>
-					</div>
+					</div> */}
 					<div className="col-span-2 flex flex-col items-end gap-5 text-right text-slate-600 dark:text-neutral-300 md:text-left">
 						<SocialLinks />
-						<p>&copy; 2023 Company Inc.</p>
+						<p>&copy; 2025 Cyber Income Innovators</p>
 						<p>
-							<a href="#" className="hover:underline">
+							{/* <a href="#" className="hover:underline">
 								Privacy Policy
 							</a>{' '}
 							·{' '}
 							<a href="#" className="hover:underline">
 								Terms
-							</a>
+							</a> */}
 						</p>
 					</div>
 				</div>
