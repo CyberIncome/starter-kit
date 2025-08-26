@@ -14,7 +14,7 @@ type Props = {
 function PublicationSidebar(props: Props) {
 	const { toggleSidebar, navbarItems } = props;
 	const { publication } = useAppContext();
-	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '');
+	const hasSocialLinks = publication.links ? !Object.values(publication.links).every((val) => val === '') : false;
 
 	return (
 		<>
