@@ -150,8 +150,8 @@ export const getServerSideProps: GetServerSideProps<DebugPageProps> = async () =
 		`;
 
 		const [staticPagesData, postsData] = await Promise.all([
-			request(endpoint, staticPagesQuery, { host }),
-			request(endpoint, postsQuery, { host, first: 20 }),
+			request(endpoint, staticPagesQuery, { host }) as any,
+			request(endpoint, postsQuery, { host, first: 20 }) as any,
 		]);
 
 		const staticPages = (staticPagesData.publication?.staticPages.edges ?? []).map((edge) => edge.node);

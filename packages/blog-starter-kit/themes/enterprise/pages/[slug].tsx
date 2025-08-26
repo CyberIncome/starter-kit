@@ -254,7 +254,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		}
 	`;
 
-	const staticPagesData = await request(endpoint, staticPagesQuery, { host });
+	const staticPagesData = await request(endpoint, staticPagesQuery, { host }) as any;
 
 	const postSlugs = (postsData.publication?.posts.edges ?? []).map((edge) => edge.node.slug);
 	const staticPageSlugs = (staticPagesData.publication?.staticPages.edges ?? []).map((edge) => edge.node.slug);
