@@ -7,8 +7,8 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'accent-1': '#18181b',
-				'accent-2': '#11111dff',
+				'accent-1': '#FAFAFA',
+				'accent-2': '#EAEAEA',
 				'accent-7': '#333',
 				success: '#0070f3',
 				cyan: '#79FFE1',
@@ -21,7 +21,7 @@ module.exports = {
 					  display: 'flex',
 					  'justify-content': 'flex-start',
 					  'align-items': 'flex-start',
-					  'background-color': '#F8FAFC',
+					  'background-color': '#18181b',
 					  border: '1px solid #E2E8F0',
 					  padding: ' 1rem 1.5rem',
 					  gap: '0.5rem',
