@@ -66,9 +66,11 @@ export const Header = () => {
 						<PublicationLogo />
 					</div>
 				</div>
-				<div className="col-span-2 flex flex-row items-center justify-end gap-3 lg:gap-5 text-slate-300 lg:col-span-3 bg-black bg-opacity-50 p-2 rounded">
-					{navList}
-					<DarkModeToggle />
+				<div className="col-span-2 flex flex-row items-center justify-end lg:col-span-3">
+					<div className="flex items-center gap-3 lg:gap-5 text-slate-300 bg-black bg-opacity-60 p-2 rounded">
+						{navList}
+						<DarkModeToggle />
+					</div>
 				</div>
 			</Container>
 			<div className="mt-4 flex flex-col items-center gap-4 lg:hidden">
