@@ -35,6 +35,16 @@ fragment Publication on Publication {
 		linkedin
 		hashnode
 	}
+	staticPages(first: 50) {
+		edges {
+			node {
+				id
+				title
+				slug
+				hidden
+			}
+		}
+	}
 	integrations {
 		umamiWebsiteUUID
 		gaTrackingID

@@ -22,7 +22,7 @@ export const Header = () => {
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
 	
 	// Add static pages to navbar items
-	const staticPages = publication.staticPages?.edges?.map((edge: any) => ({
+	const staticPages = (publication as any).staticPages?.edges?.map((edge: any) => ({
 		url: `/${edge.node.slug}`,
 		label: edge.node.title,
 		type: 'static-page'
