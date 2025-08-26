@@ -11,13 +11,13 @@ export const Footer = () => {
 		 	<Container className="px-5">
 		 		{PUBLICATION_LOGO ? (
 					<div className="mb-20 flex w-full flex-row justify-center">
-						<Link
+						{/* <Link
 							href={'/'}
 							aria-label={`${publication.title} home page`}
 							className="flex flex-row items-center gap-5"
 						>
 							<img className="block w-40" src={PUBLICATION_LOGO} alt={publication.title} />
-						</Link>
+						</Link> */}
 					</div>
 		 		) : (
 					<p className="mb-20 text-center text-xl font-semibold text-slate-900 dark:text-slate-50 md:text-4xl">
