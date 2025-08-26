@@ -12,7 +12,23 @@ export const Layout = ({ children }: Props) => {
 		<>
 			<Meta />
 			<Scripts />
-			<div className="min-h-screen bg-white dark:bg-neutral-950">
+			<script
+				dangerouslySetInnerHTML={{
+					__html: `
+						(function() {
+							try {
+								var theme = localStorage.getItem('theme');
+								if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+									document.documentElement.classList.add('dark');
+								} else {
+									document.documentElement.classList.remove('dark');
+								}
+							} catch (e) {}
+						})();
+					`,
+				}}
+			/>
+			<div className="min-h-screen bg-white dark:bg-black">
 				<main>{children}</main>
 			</div>
 			<Analytics />

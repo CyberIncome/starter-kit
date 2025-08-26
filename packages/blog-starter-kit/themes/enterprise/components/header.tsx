@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { Container } from './container';
+import { DarkModeToggle } from './dark-mode-toggle';
 import { useAppContext } from './contexts/appContext';
 import HamburgerSVG from './icons/svgs/HamburgerSVG';
 import { PublicationLogo } from './publication-logo';
@@ -97,13 +98,15 @@ export const Header = () => {
 						<PublicationLogo />
 					</div>
 				</div>
-				{/* <div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
-					<nav className="hidden lg:block">{navList}</nav>
-					<Button href={baseUrl} as="a" type="primary" label="Book a demo" />
-				</div> */}
+				<div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
+					<DarkModeToggle />
+				</div>
 			</Container>
 			<div className="mt-5 flex justify-center lg:hidden">
 				<PublicationLogo />
+			</div>
+			<div className="mt-5 flex justify-center lg:hidden">
+				<DarkModeToggle />
 			</div>
 		</header>
 	);
