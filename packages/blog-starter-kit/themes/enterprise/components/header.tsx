@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { Container } from './container';
@@ -17,6 +18,7 @@ export const Header = () => {
 	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '/';
 	const { publication } = useAppContext();
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	
 	// Add static pages to navbar items
 	const staticPages = (publication as any).staticPages?.edges?.map((edge: any) => ({
@@ -29,11 +31,7 @@ export const Header = () => {
 	const allNavItems = [...navbarItems, ...staticPages];
 
 	const toggleSidebar = () => {
-		// Simple toggle without state - will be handled by CSS
-		const sidebar = document.getElementById('mobile-sidebar');
-		if (sidebar) {
-			sidebar.classList.toggle('hidden');
-		}
+		setIsSidebarOpen(!isSidebarOpen);
 	};
 
 	const navList = (
@@ -77,10 +75,9 @@ export const Header = () => {
 				<PublicationLogo />
 			</div>
 			
-			{/* Mobile Sidebar - Always rendered but hidden by default */}
-			<div id="mobile-sidebar" className="hidden lg:hidden">
+			{isSidebarOpen && (
 				<PublicationSidebar navbarItems={allNavItems} toggleSidebar={toggleSidebar} />
-			</div>
+			)}
 		</header>
 	);
 };
