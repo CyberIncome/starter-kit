@@ -24,9 +24,9 @@ export const PublicationLogo = ({ isSidebar }: { isSidebar?: boolean }) => {
 				{PUBLICATION_LOGO ? (
 					<>
 						<img
-							className="block w-32 shrink-0 md:w-40"
+							className="block w-16 h-16 shrink-0 rounded-full"
 							alt={publication.title}
-							src={resizeImage(PUBLICATION_LOGO, { w: 320, h: 80 })}
+							src={resizeImage(PUBLICATION_LOGO, { w: 64, h: 64 })}
 						/>
 						<span className="text-2xl font-semibold text-white md:text-3xl">Cyber Income Innovators</span>
 					</>
