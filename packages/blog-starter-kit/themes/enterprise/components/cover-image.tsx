@@ -6,9 +6,10 @@ type Props = {
 	src: string;
 	slug?: string;
 	priority?: boolean;
+	className?: string;
 };
 
-export const CoverImage = ({ title, src, slug, priority = false }: Props) => {
+export const CoverImage = ({ title, src, slug, priority = false, className }: Props) => {
 	const postURL = `/${slug}`;
 
 	const image = (
@@ -16,7 +17,7 @@ export const CoverImage = ({ title, src, slug, priority = false }: Props) => {
 			<Image
 				src={src}
 				alt={`Cover Image for ${title}`}
-				className="w-full rounded-md border object-cover hover:opacity-90 dark:border-neutral-800"
+				className={`w-full rounded-md border object-cover hover:opacity-90 dark:border-neutral-800 ${className}`}
 				fill
 				unoptimized
 				priority={priority}
