@@ -20,8 +20,18 @@ export const Header = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>();
 	const { publication } = useAppContext();
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
-	const visibleItems = navbarItems.slice(0, 3);
-	const hiddenItems = navbarItems.slice(3);
+	
+	// Add static pages to navbar items
+	const staticPages = publication.staticPages?.edges?.map((edge: any) => ({
+		url: `/${edge.node.slug}`,
+		label: edge.node.title,
+		type: 'static-page'
+	})) || [];
+	
+	// Combine navbar items and static pages
+	const allNavItems = [...navbarItems, ...staticPages];
+	const visibleItems = allNavItems.slice(0, 3);
+	const hiddenItems = allNavItems.slice(3);
 
 	const toggleSidebar = () => {
 		setIsSidebarVisible((prevVisibility) => !prevVisibility);
@@ -91,7 +101,7 @@ export const Header = () => {
 						/>
 
 						{isSidebarVisible && (
-							<PublicationSidebar navbarItems={navbarItems} toggleSidebar={toggleSidebar} />
+							<PublicationSidebar navbarItems={allNavItems} toggleSidebar={toggleSidebar} />
 						)}
 					</div>
 					<div className="hidden lg:block">
@@ -99,6 +109,7 @@ export const Header = () => {
 					</div>
 				</div>
 				<div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
+					{navList}
 					<DarkModeToggle />
 				</div>
 			</Container>
