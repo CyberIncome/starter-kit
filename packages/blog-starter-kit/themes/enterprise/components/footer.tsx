@@ -8,7 +8,7 @@ export const Footer = () => {
 	const PUBLICATION_LOGO = publication.preferences.logo;
 	return (
 		 <footer className="border-t py-20 dark:border-neutral-800 ">
-		// 	<Container className="px-5">
+		 	<Container className="px-5">
 		 		{PUBLICATION_LOGO ? (
 					<div className="mb-20 flex w-full flex-row justify-center">
 						<Link
@@ -28,108 +28,108 @@ export const Footer = () => {
 					<div className="col-span-1 grid grid-cols-4 gap-5 md:col-span-4 lg:col-span-3">
 						<div className="col-span-full md:col-span-2 lg:col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">
-								
+								{/* Stay in touch */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Contact us */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Book a demo */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Newsletter */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Slack */}
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div className="col-span-full md:col-span-2 lg:col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">
-								
+								{/* Resources */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Community */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Use Cases */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Source Code */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Blog */}
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div className="col-span-full md:col-span-2 lg:col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">
-								
+								{/* Product */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Pricing */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Documentation */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Integrations */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Support */}
 									</a>
 								</li>
 							</ul>
 						</div>
 						<div className="col-span-1">
 							<p className="mb-2 font-semibold text-slate-600 dark:text-neutral-200">
-								
+								{/* Other links */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Events */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Careers */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* Newsroom */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										
+										{/* About us */}
 									</a>
 								</li>
 							</ul>
@@ -140,11 +140,11 @@ export const Footer = () => {
 						<p>&copy; 2025 Cyber Income Innovators</p>
 						<p>
 							<a href="#" className="hover:underline">
-								
+								{/* Privacy Policy */}
 							</a>{' '}
 							·{' '}
 							<a href="#" className="hover:underline">
-								
+								{/* Terms */}
 							</a>
 						</p>
 					</div>
