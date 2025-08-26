@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { Container } from './container';
@@ -16,7 +15,6 @@ function hasUrl(
 
 export const Header = () => {
 	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '/';
-	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>();
 	const { publication } = useAppContext();
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
 	
@@ -31,7 +29,11 @@ export const Header = () => {
 	const allNavItems = [...navbarItems, ...staticPages];
 
 	const toggleSidebar = () => {
-		setIsSidebarVisible((prevVisibility) => !prevVisibility);
+		// Simple toggle without state - will be handled by CSS
+		const sidebar = document.getElementById('mobile-sidebar');
+		if (sidebar) {
+			sidebar.classList.toggle('hidden');
+		}
 	};
 
 	const navList = (
@@ -61,10 +63,6 @@ export const Header = () => {
 							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-slate-900 dark:hover:bg-neutral-800"
 							onClick={toggleSidebar}
 						/>
-
-						{isSidebarVisible && (
-							<PublicationSidebar navbarItems={allNavItems} toggleSidebar={toggleSidebar} />
-						)}
 					</div>
 					<div className="hidden lg:block">
 						<PublicationLogo />
@@ -77,7 +75,11 @@ export const Header = () => {
 			</Container>
 			<div className="mt-4 flex flex-col items-center gap-4 lg:hidden">
 				<PublicationLogo />
-				<DarkModeToggle />
+			</div>
+			
+			{/* Mobile Sidebar - Always rendered but hidden by default */}
+			<div id="mobile-sidebar" className="hidden lg:hidden">
+				<PublicationSidebar navbarItems={allNavItems} toggleSidebar={toggleSidebar} />
 			</div>
 		</header>
 	);
