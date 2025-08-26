@@ -31,26 +31,26 @@ export const Footer = () => {
 								{/* Stay in touch */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
-								{/* <li>
+								<li>
 									<a href="#" className="hover:underline">
-										Contact us
+										{/* Contact us */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Book a demo
+										{/* Book a demo */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Newsletter
+										{/* Newsletter */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Slack
+										{/* Slack */}
 									</a>
-								</li> */}
+								</li>
 							</ul>
 						</div>
 						<div className="col-span-full md:col-span-2 lg:col-span-1">
@@ -58,26 +58,26 @@ export const Footer = () => {
 								{/* Resources */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
-								{/* <li>
+								<li>
 									<a href="#" className="hover:underline">
-										Community
+										{/* Community */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Use Cases
+										{/* Use Cases */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Source Code
+										{/* Source Code */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Blog
+										{/* Blog */}
 									</a>
-								</li> */}
+								</li>
 							</ul>
 						</div>
 						<div className="col-span-full md:col-span-2 lg:col-span-1">
@@ -85,26 +85,26 @@ export const Footer = () => {
 								{/* Product */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
-								{/* <li>
+								<li>
 									<a href="#" className="hover:underline">
-										Pricing
+										{/* Pricing */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Documentation
+										{/* Documentation */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Integrations
+										{/* Integrations */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Support
+										{/* Support */}
 									</a>
-								</li> */}
+								</li>
 							</ul>
 						</div>
 						<div className="col-span-1">
@@ -112,26 +112,26 @@ export const Footer = () => {
 								{/* Other links */}
 							</p>
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
-								{/* <li>
+								<li>
 									<a href="#" className="hover:underline">
-										Events
+										{/* Events */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Careers
+										{/* Careers */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										Newsroom
+										{/* Newsroom */}
 									</a>
 								</li>
 								<li>
 									<a href="#" className="hover:underline">
-										About us
+										{/* About us */}
 									</a>
-								</li> */}
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -139,13 +139,13 @@ export const Footer = () => {
 						<SocialLinks />
 						<p>&copy; 2025 Cyber Income Innovators</p>
 						<p>
-							{/* <a href="#" className="hover:underline">
-								Privacy Policy
+							<a href="#" className="hover:underline">
+								{/* Privacy Policy */}
 							</a>{' '}
 							·{' '}
 							<a href="#" className="hover:underline">
-								Terms
-							</a> */}
+								{/* Terms */}
+							</a>
 						</p>
 					</div>
 				</div>
