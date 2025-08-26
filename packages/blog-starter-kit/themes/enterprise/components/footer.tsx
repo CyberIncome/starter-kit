@@ -142,7 +142,7 @@ export const Footer = () => {
 							<a href="#" className="hover:underline">
 								{/* Privacy Policy */}
 							</a>{' '}
-							·{' '}
+							{' '}
 							<a href="#" className="hover:underline">
 								{/* Terms */}
 							</a>
