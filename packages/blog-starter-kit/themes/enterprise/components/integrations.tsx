@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useAppContext } from './contexts/appContext';
+import { useCookieConsent } from './cookie-consent-wrapper';
 
 export function Integrations() {
 	const { publication } = useAppContext();
+	const { hasConsent } = useCookieConsent();
 	const {
 		gaTrackingID,
 		fbPixelID,
@@ -87,19 +89,20 @@ export function Integrations() {
     })(window, document, "clarity", "script", '${msClarityID}');`;
 
 	useEffect(() => {
+		if (!hasConsent) return;
 		// @ts-ignore
 		window.gtag('config', gaTrackingID, {
 			transport_url: 'https://ping.hashnode.com',
 			first_party_collection: true,
 		});
-	}, []);
+	}, [hasConsent]);
 
 	return (
 		<>
-			{fbPixelID ? (
+			{hasConsent && fbPixelID ? (
 				<script type="text/javascript" dangerouslySetInnerHTML={{ __html: fbPixel }}></script>
 			) : null}
-			{fathomSiteID && (
+			{hasConsent && fathomSiteID && (
 				<script
 					src={
 						fathomCustomDomainEnabled
@@ -114,34 +117,34 @@ export function Integrations() {
 					defer
 				></script>
 			)}
-			{hotjarSiteID && hotjarForUsers && (
+			{hasConsent && hotjarSiteID && hotjarForUsers && (
 				<script
 					type="text/javascript"
 					dangerouslySetInnerHTML={{ __html: hotjarForUsers }}
 				></script>
 			)}
-			{matomoURL && (
+			{hasConsent && matomoURL && (
 				<script
 					type="text/javascript"
 					dangerouslySetInnerHTML={{ __html: matomoAnalytics }}
 				></script>
 			)}
-			{gTagManagerID && (
+			{hasConsent && gTagManagerID && (
 				<script
 					type="text/javascript"
 					dangerouslySetInnerHTML={{ __html: googleTagManager }}
 				></script>
 			)}
-			{koalaForUsers && (
+			{hasConsent && koalaForUsers && (
 				<script type="text/javascript" dangerouslySetInnerHTML={{ __html: koalaForUsers }}></script>
 			)}
-			{msClarityForUsers && (
+			{hasConsent && msClarityForUsers && (
 				<script
 					type="text/javascript"
 					dangerouslySetInnerHTML={{ __html: msClarityForUsers }}
 				></script>
 			)}
-			{plausibleAnalyticsEnabled && (
+			{hasConsent && plausibleAnalyticsEnabled && (
 				<script
 					async
 					defer
