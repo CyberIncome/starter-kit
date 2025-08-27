@@ -3,15 +3,12 @@ import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useAppContext } from './contexts/appContext';
-import { useCookieConsent } from './cookie-consent-wrapper';
-
 const GA_TRACKING_ID = 'G-72XG3F8LNJ'; // This is Hashnode's GA tracking ID
 const isProd = process.env.NEXT_PUBLIC_MODE === 'production';
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_URL || '';
 
 export const Analytics = () => {
 	const { publication, post, series, page } = useAppContext();
-	const { hasConsent } = useCookieConsent();
 
 	const _sendPageViewsToHashnodeGoogleAnalytics = () => {
 		// @ts-ignore
@@ -73,8 +70,7 @@ export const Analytics = () => {
 			return;
 		}
 
-		const isBrowser = typeof window !== 'undefined';
-		if (!isBrowser) {
+		const isBrowser = typeof window !== 'undefined';		if (!isBrowser) {
 			return;
 		}
 
@@ -133,12 +129,12 @@ export const Analytics = () => {
 	}
 
 	useEffect(() => {
-		if (!isProd || !hasConsent) return;
+		if (!isProd) return;
 
 		_sendPageViewsToHashnodeGoogleAnalytics();
 		_sendViewsToHashnodeInternalAnalytics();
 		_sendViewsToAdvancedAnalyticsDashboard();
-	}, [hasConsent]);
+	}, []);
 
 	return null;
 };
