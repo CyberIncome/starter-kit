@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import CookieConsent, { get  } from 'react-cookie-consent';
+import CookieConsent, { getCookieConsentValue } from 'react-cookie-consent';
 
 type CookieConsentContextType = {
   hasConsent: boolean;
@@ -11,7 +11,7 @@ export const CookieConsentWrapper = ({ children }: { children: ReactNode }) => {
   const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
-    setHasConsent(get('CookieConsent') === 'true');
+    setHasConsent(getCookieConsentValue('CookieConsent') === 'true');
   }, []);
 
   return (
