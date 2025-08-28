@@ -174,112 +174,125 @@
 	}
 }
 
-/* Custom styles for a cleaner InMobi Consent Pop-up Bar */
-#qc-cmp2-usp {
-    /* --- Basic Layout and Positioning --- */
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10000; /* Ensure it's on top of other content */
+/*
+ *  IMPROVED CSS FOR A BOTTOM COOKIE CONSENT BANNER
+ *  This code transforms the default pop-up into a clean, non-intrusive bottom bar.
+ */
+
+/* Main container: Force it into a banner shape */
+#qc-cmp2-container {
+    background-color: rgba(20, 20, 20, 0.95) !important; /* Dark, semi-transparent background */
+    backdrop-filter: blur(5px); /* Frosted glass effect for modern look */
+    border-top: 1px solid #444;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    color: #FFFFFF;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important; /* Override any top positioning */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 20px;
+    z-index: 99999;
     box-sizing: border-box;
-
-    /* --- Appearance and Spacing --- */
-    background-color: #1F1F1F; /* A dark, solid background for a modern look */
-    color: #EAEAEA; /* A softer white for text, easy on the eyes */
-    padding: 16px 24px;
-    border-top: 1px solid #333; /* Subtle top border for separation */
-    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-
-    /* --- Flexbox for Alignment --- */
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 24px; /* Space between the text and the buttons */
+    gap: 20px;
 }
 
-/* Hide the default header if not needed */
-#qc-cmp2-usp .qc-cmp2-header {
-    display: none;
+/* Hide the 'X' close button for a cleaner bar */
+#qc-cmp2-container .qc-cmp2-close-icon {
+    display: none !important;
 }
 
-/* --- Text Styling --- */
-#qc-cmp2-usp .qc-cmp2-body {
-    flex-grow: 1; /* Allow text to take available space */
+/* Main text content area */
+#qc-cmp2-container .qc-cmp2-summary-section {
+    text-align: left;
     margin: 0;
-    font-size: 14px; /* Clear and readable font size */
+    flex-grow: 1; /* Allow text to take up available space */
+}
+
+#qc-cmp2-container .qc-cmp2-summary-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#qc-cmp2-container .qc-cmp2-summary-info {
+    font-size: 14px;
     line-height: 1.5;
+    color: #E0E0E0; /* Slightly off-white for better readability */
 }
 
-#qc-cmp2-usp .qc-cmp2-body p {
-    margin: 0;
-    color: inherit;
-}
-
-/* --- Button Container --- */
-#qc-cmp2-usp .qc-cmp2-footer {
+/* Container for the buttons and links */
+#qc-cmp2-container .qc-cmp2-summary-buttons {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 12px; /* Space between buttons */
+    gap: 15px; /* Space between links and button */
     flex-shrink: 0; /* Prevent buttons from shrinking */
 }
 
-/* --- General Button Styles --- */
-#qc-cmp2-usp .qc-cmp2-footer button {
-    padding: 10px 20px;
+/* Style for "Personal Data" and "Google consents" links */
+#qc-cmp2-container .qc-cmp2-link {
+    background: none !important;
+    border: none !important;
+    color: #A9A9A9 !important; /* Light gray for secondary actions */
+    text-decoration: underline !important;
     font-size: 14px;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px; /* Slightly rounded corners for a modern feel */
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
-    white-space: nowrap; /* Keep button text on one line */
+    padding: 0;
 }
 
-#qc-cmp2-usp .qc-cmp2-footer button:hover {
-    transform: translateY(-1px); /* Subtle lift effect on hover */
+#qc-cmp2-container .qc-cmp2-link:hover {
+    color: #FFFFFF !important; /* White on hover */
 }
 
-/* --- Primary Button ("Agree") --- */
-#qc-cmp2-usp .qc-cmp2-footer .qc-cmp2-consent-given {
-    background-color: #4A90E2; /* A friendly, accessible blue */
-    color: #FFFFFF;
+/* Main "CONFIRM" button styling */
+#qc-cmp2-container .qc-cmp2-summary-button {
+    background-color: #007BFF !important; /* A clear, friendly blue */
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 12px 24px !important;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-#qc-cmp2-usp .qc-cmp2-footer .qc-cmp2-consent-given:hover {
-    background-color: #5AA0F2; /* Brighter on hover */
+#qc-cmp2-container .qc-cmp2-summary-button:hover {
+    background-color: #0056b3 !important; /* Darker blue on hover */
 }
 
-/* --- Secondary Button ("Set Preferences") --- */
-#qc-cmp2-usp .qc-cmp2-footer .qc-cmp2-show-purpose {
-    background-color: #333333; /* Dark gray background */
-    color: #FFFFFF;
+/* Remove default padding/margins that cause issues */
+#qc-cmp2-container .qc-cmp2-main-info,
+#qc-cmp2-container .qc-cmp2-footer {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-#qc-cmp2-usp .qc-cmp2-footer .qc-cmp2-show-purpose:hover {
-    background-color: #444444; /* Lighter gray on hover */
-}
-
-/* --- Responsive styles for smaller screens --- */
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    #qc-cmp2-usp {
-        flex-direction: column; /* Stack items vertically */
-        align-items: stretch; /* Stretch items to full width */
-        padding: 16px;
+    #qc-cmp2-container {
+        flex-direction: column;
         text-align: center;
-        gap: 16px; /* Adjust gap for vertical layout */
     }
 
-    #qc-cmp2-usp .qc-cmp2-footer {
-        flex-direction: column-reverse; /* Show primary button first on mobile */
-        width: 100%;
-        gap: 10px;
+    #qc-cmp2-container .qc-cmp2-summary-section {
+        text-align: center;
+        margin-bottom: 15px;
     }
 
-    #qc-cmp2-usp .qc-cmp2-footer button {
+    #qc-cmp2-container .qc-cmp2-summary-buttons {
+        flex-direction: column;
         width: 100%;
-        padding: 12px; /* Slightly larger for easier tapping */
+        gap: 12px;
+    }
+
+    #qc-cmp2-container .qc-cmp2-summary-button {
+        width: 100%; /* Full-width button on mobile */
     }
 }
