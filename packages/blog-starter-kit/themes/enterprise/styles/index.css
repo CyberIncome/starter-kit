@@ -2,47 +2,277 @@
 @tailwind components;
 @tailwind utilities;
 
-.hashnode-content-style{
-    @apply prose break-words text-slate-950 first:prose-p:mt-0 prose-img:max-w-full prose-p:leading-snug prose-a:underline hover:prose-a:bg-primary-50 dark:hover:prose-a:text-primary-500 dark:hover:prose-a:bg-neutral-800 dark:text-neutral-50 prose-blockquote:leading-snug prose-a:leading-snug prose-figure:leading-snug prose-figcaption:leading-snug prose-pre:leading-snug prose-li:leading-snug prose-ul:leading-snug prose-ol:leading-snug prose-th:leading-snug prose-td:leading-snug lg:prose-xl dark:prose-invert dark:prose-pre:bg-neutral-900 first:prose-h1:mt-0 first:prose-h2:mt-0 first:prose-h3:mt-0 first:prose-h4:mt-0 first:prose-h5:mt-0;
+@layer base {
+	:root {
+		--color-text-default: #222222;
+		--color-text-light: #555555;
+		--color-text-lighter: #777777;
+		--color-text-dark: #000000;
+		--color-text-darker: #000000;
+		--color-bg-default: #ffffff;
+		--color-bg-post: #ffffff;
+		--color-border-default: #e5e5e5;
+		--color-primary: #000000;
+		--color-secondary: #555555;
+		--color-tertiary: #777777;
+		--color-quaternary: #999999;
+		--color-hashnode-purple: #2962ff;
+		--color-hashnode-purple-light: #eef2ff;
+		--color-code-bg: #f8f8f8;
+		--color-code-text: #333333;
+		--color-code-border: #e5e5e5;
+		--color-card-bg: #ffffff;
+		--color-card-border: #e5e5e5;
+		--color-card-shadow: #e5e5e5;
+		--color-card-hover-shadow: #cccccc;
+		--color-card-hover-border: #cccccc;
+		--color-card-hover-bg: #ffffff;
+		--color-card-hover-text: #222222;
+		--color-card-hover-text-light: #555555;
+		--color-card-hover-text-lighter: #777777;
+		--color-card-hover-text-dark: #000000;
+		--color-card-hover-text-darker: #000000;
+		--color-card-hover-primary: #000000;
+		--color-card-hover-secondary: #555555;
+		--color-card-hover-tertiary: #777777;
+		--color-card-hover-quaternary: #999999;
+		--color-card-hover-hashnode-purple: #2962ff;
+		--color-card-hover-hashnode-purple-light: #eef2ff;
+		--color-card-hover-code-bg: #f8f8f8;
+		--color-card-hover-code-text: #333333;
+		--color-card-hover-code-border: #e5e5e5;
+	}
+
+	.dark {
+		--color-text-default: #ffffff;
+		--color-text-light: #cccccc;
+		--color-text-lighter: #aaaaaa;
+		--color-text-dark: #ffffff;
+		--color-text-darker: #ffffff;
+		--color-bg-default: #000000;
+		--color-bg-post: #000000;
+		--color-border-default: #333333;
+		--color-primary: #ffffff;
+		--color-secondary: #cccccc;
+		--color-tertiary: #aaaaaa;
+		--color-quaternary: #888888;
+		--color-hashnode-purple: #2962ff;
+		--color-hashnode-purple-light: #eef2ff;
+		--color-code-bg: #1a1a1a;
+		--color-code-text: #cccccc;
+		--color-code-border: #333333;
+		--color-card-bg: #1a1a1a;
+		--color-card-border: #333333;
+		--color-card-shadow: #1a1a1a;
+		--color-card-hover-shadow: #333333;
+		--color-card-hover-border: #333333;
+		--color-card-hover-bg: #1a1a1a;
+		--color-card-hover-text: #ffffff;
+		--color-card-hover-text-light: #cccccc;
+		--color-card-hover-text-lighter: #aaaaaa;
+		--color-card-hover-text-dark: #ffffff;
+		--color-card-hover-text-darker: #ffffff;
+		--color-card-hover-primary: #ffffff;
+		--color-card-hover-secondary: #cccccc;
+		--color-card-hover-tertiary: #aaaaaa;
+		--color-card-hover-quaternary: #888888;
+		--color-card-hover-hashnode-purple: #2962ff;
+		--color-card-hover-hashnode-purple-light: #eef2ff;
+		--color-card-hover-code-bg: #1a1a1a;
+		--color-card-hover-code-text: #cccccc;
+		--color-card-hover-code-border: #333333;
+	}
 }
 
-/* Override to remove the backtick */
-.hashnode-content-style :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before, .hashnode-content-style :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after  {
-    content: none;
+@layer components {
+	.hashnode-content-style {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			@apply font-bold text-slate-900 dark:text-neutral-50;
+		}
+
+		h1 {
+			@apply text-4xl;
+		}
+
+		h2 {
+			@apply text-3xl;
+		}
+
+		h3 {
+			@apply text-2xl;
+		}
+
+		h4 {
+			@apply text-xl;
+		}
+
+		h5 {
+			@apply text-lg;
+		}
+
+		h6 {
+			@apply text-base;
+		}
+
+		p {
+			@apply text-lg text-slate-700 dark:text-neutral-300;
+		}
+
+		a {
+			@apply text-blue-600 hover:underline dark:text-blue-400;
+		}
+
+		ul {
+			@apply list-disc pl-5;
+		}
+
+		ol {
+			@apply list-decimal pl-5;
+		}
+
+		li {
+			@apply text-lg text-slate-700 dark:text-neutral-300;
+		}
+
+		blockquote {
+			@apply border-l-4 border-slate-300 pl-4 italic text-slate-600 dark:border-neutral-700 dark:text-neutral-400;
+		}
+
+		pre {
+			@apply overflow-x-auto rounded-md bg-slate-100 p-4 font-mono text-sm dark:bg-neutral-800;
+		}
+
+		code {
+			@apply rounded-md bg-slate-100 px-1 py-0.5 font-mono text-sm dark:bg-neutral-800;
+		}
+
+		img {
+			@apply mx-auto my-5 max-w-full rounded-md;
+		}
+
+		table {
+			@apply w-full table-auto border-collapse;
+		}
+
+		th,
+		td {
+			@apply border border-slate-300 px-4 py-2 dark:border-neutral-700;
+		}
+
+		th {
+			@apply bg-slate-200 font-semibold text-slate-800 dark:bg-neutral-700 dark:text-neutral-200;
+		}
+
+		hr {
+			@apply my-10 border-t border-slate-300 dark:border-neutral-700;
+		}
+	}
 }
 
-.prose code {
-    border-radius: 0.25rem;
-    font-weight: 400 !important;
-    padding: 0.25rem;
-    --tw-text-opacity: 1;
-    color: rgba(0, 0, 0, var(--tw-text-opacity));
-    font-size: 80%;
-    background: #f0efed;
+/* Custom styles for InMobi Consent Pop-up */
+.qc-cmp2-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker, semi-transparent background */
+    color: #ffffff;
+    border-top-left-radius: 10px; /* Rounded corners for the bar */
+    border-top-right-radius: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 100%; /* Ensure it doesn't overflow */
+    box-sizing: border-box; /* Include padding in width */
 }
-  
-.dark .prose code {
-    --tw-bg-opacity: 1;
-    background-color: rgba(36, 41, 46, var(--tw-bg-opacity));
-    --tw-text-opacity: 1;
-    color: rgba(238, 238, 238, var(--tw-text-opacity));
+
+.qc-cmp2-container .qc-cmp2-header {
+    display: none; /* Hide the default header if it's too prominent */
 }
-  
-.prose pre {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+
+.qc-cmp2-container .qc-cmp2-body {
+    flex-grow: 1;
+    margin-right: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
-  
-.prose pre code {
+
+.qc-cmp2-container .qc-cmp2-body p {
+    margin: 0;
+    color: inherit; /* Inherit text color from container */
+}
+
+.qc-cmp2-container .qc-cmp2-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.qc-cmp2-container .qc-cmp2-footer button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px; /* Fully rounded buttons */
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Prevent buttons from wrapping text */
+}
+
+/* Style for the "Agree" button */
+.qc-cmp2-container .qc-cmp2-footer .qc-cmp2-consent-given {
+    background-color: #2962ff; /* Hashnode purple */
+    color: #ffffff;
+    border: 1px solid #2962ff;
+}
+
+.qc-cmp2-container .qc-cmp2-footer .qc-cmp2-consent-given:hover {
+    background-color: #1a4ed8; /* Slightly darker on hover */
+    border-color: #1a4ed8;
+}
+
+/* Style for the "Manage Options" button */
+.qc-cmp2-container .qc-cmp2-footer .qc-cmp2-show-purpose {
     background-color: transparent;
-    border-radius: 0px;
-    font-weight: 500 !important;
-    padding: 0px;
-    font-size: 100%;
-    color: #fafafa;
+    color: #ffffff;
+    border: 1px solid #ffffff;
 }
 
-.dark .prose pre code {
-    background-color: transparent;
-    color: #ddd;
+.qc-cmp2-container .qc-cmp2-footer .qc-cmp2-show-purpose:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .qc-cmp2-container {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .qc-cmp2-container .qc-cmp2-body {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .qc-cmp2-container .qc-cmp2-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .qc-cmp2-container .qc-cmp2-footer button {
+        width: 100%;
+    }
 }
