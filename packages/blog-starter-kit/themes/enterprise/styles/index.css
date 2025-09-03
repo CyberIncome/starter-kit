@@ -86,6 +86,14 @@
 
 @layer components {
 	.hashnode-content-style {
+		/* General text color for all elements */
+		@apply text-slate-700 dark:text-neutral-300;
+		
+		/* Ensure all text elements inherit proper colors */
+		* {
+			@apply text-slate-700 dark:text-neutral-300;
+		}
+		
 		h1,
 		h2,
 		h3,
