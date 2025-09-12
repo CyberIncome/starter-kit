@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Silktide Consent Manager Overrides */
+#silktide-wrapper {
+  --primaryColor: #533BE2 !important;
+  --backgroundColor: #FFFFFF !important;
+  --textColor: #4B494B !important;
+  --backdropBackgroundColor: #00000033 !important;
+  --cookieIconColor: #533BE2 !important;
+  --cookieIconBackgroundColor: #FFFFFF !important;
+}
+
+/* Ensure Silktide elements are not affected by site styles */
+#silktide-wrapper * {
+  box-sizing: border-box !important;
+}
+
+#silktide-wrapper button {
+  font-family: inherit !important;
+}
+
+/* Dark mode support for Silktide */
+.dark #silktide-wrapper {
+  --primaryColor: #7C3AED !important;
+  --backgroundColor: #1F2937 !important;
+  --textColor: #F9FAFB !important;
+  --backdropBackgroundColor: #00000066 !important;
+  --cookieIconColor: #7C3AED !important;
+  --cookieIconBackgroundColor: #1F2937 !important;
+}
+
 @layer base {
 	:root {
 		--color-text-default: #222222;

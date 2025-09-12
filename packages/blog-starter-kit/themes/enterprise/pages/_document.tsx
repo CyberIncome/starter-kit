@@ -11,7 +11,9 @@ export default function Document() {
 					__html: `
 // Wait for Silktide to load before configuring
 function initSilktideConfig() {
+  console.log('Initializing Silktide config...');
   if (typeof silktideCookieBannerManager !== 'undefined') {
+    console.log('Silktide manager found, configuring...');
     silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: true
@@ -108,6 +110,7 @@ function initSilktideConfig() {
 });
   } else {
     // Retry if Silktide hasn't loaded yet
+    console.log('Silktide manager not found, retrying...');
     setTimeout(initSilktideConfig, 100);
   }
 }
@@ -118,6 +121,14 @@ if (document.readyState === 'loading') {
     } else {
   initSilktideConfig();
 }
+
+// Fallback initialization after a delay
+setTimeout(function() {
+  if (typeof silktideCookieBannerManager === 'undefined') {
+    console.log('Silktide still not loaded after delay, trying again...');
+    initSilktideConfig();
+  }
+}, 2000);
 						`,
 					}}
 				/>
