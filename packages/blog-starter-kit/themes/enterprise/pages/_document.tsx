@@ -4,7 +4,6 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
-				<link rel="stylesheet" id="silktide-consent-manager-css" href="/consent-manager/silktide-consent-manager.css" />
 				<script 
 					src="/consent-manager/silktide-consent-manager.js" 
 					async 
