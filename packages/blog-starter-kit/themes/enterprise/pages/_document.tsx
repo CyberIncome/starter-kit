@@ -5,11 +5,14 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<link rel="stylesheet" id="silktide-consent-manager-css" href="/consent-manager/silktide-consent-manager.css" />
-				<script src="/consent-manager/silktide-consent-manager.js"></script>
+				<script src="/consent-manager/silktide-consent-manager.js" async></script>
 				<script
 					dangerouslySetInnerHTML={{
 					__html: `
-silktideCookieBannerManager.updateCookieBannerConfig({
+// Wait for Silktide to load before configuring
+function initSilktideConfig() {
+  if (typeof silktideCookieBannerManager !== 'undefined') {
+    silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: true
   },
@@ -103,6 +106,18 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     }
   ]
 });
+  } else {
+    // Retry if Silktide hasn't loaded yet
+    setTimeout(initSilktideConfig, 100);
+  }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSilktideConfig);
+    } else {
+  initSilktideConfig();
+}
 						`,
 					}}
 				/>
