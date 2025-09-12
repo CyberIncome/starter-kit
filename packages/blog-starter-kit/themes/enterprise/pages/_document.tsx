@@ -14,7 +14,8 @@ function initSilktideConfig() {
   console.log('Initializing Silktide config...');
   if (typeof silktideCookieBannerManager !== 'undefined') {
     console.log('Silktide manager found, configuring...');
-    silktideCookieBannerManager.updateCookieBannerConfig({
+    try {
+      silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: true
   },
@@ -108,6 +109,10 @@ function initSilktideConfig() {
     }
   ]
 });
+      console.log('Silktide configuration completed successfully');
+    } catch (error) {
+      console.error('Error configuring Silktide:', error);
+    }
   } else {
     // Retry if Silktide hasn't loaded yet
     console.log('Silktide manager not found, retrying...');
@@ -127,6 +132,27 @@ setTimeout(function() {
   if (typeof silktideCookieBannerManager === 'undefined') {
     console.log('Silktide still not loaded after delay, trying again...');
     initSilktideConfig();
+  } else {
+    // Debug: Check if modal exists and can be toggled
+    console.log('Silktide loaded, checking modal functionality...');
+    setTimeout(function() {
+      const modal = document.querySelector('#silktide-modal');
+      const preferencesButton = document.querySelector('#silktide-banner .preferences');
+      console.log('Modal element:', modal);
+      console.log('Preferences button:', preferencesButton);
+      
+      if (modal) {
+        console.log('Modal display style:', modal.style.display);
+        console.log('Modal computed display:', window.getComputedStyle(modal).display);
+      }
+      
+      if (preferencesButton) {
+        console.log('Preferences button found, testing click...');
+        preferencesButton.addEventListener('click', function() {
+          console.log('Preferences button clicked!');
+        });
+      }
+    }, 1000);
   }
 }, 2000);
 						`,
