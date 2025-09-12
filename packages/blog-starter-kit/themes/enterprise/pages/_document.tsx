@@ -5,16 +5,30 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<link rel="stylesheet" id="silktide-consent-manager-css" href="/consent-manager/silktide-consent-manager.css" />
-				<script src="/consent-manager/silktide-consent-manager.js" async></script>
+				<script 
+					src="/consent-manager/silktide-consent-manager.js" 
+					async 
+					onload="console.log('Silktide script loaded successfully'); window.silktideLoaded = true; initSilktideConfig();"
+					onerror="console.error('Failed to load Silktide script')"
+				></script>
 				<script
 					dangerouslySetInnerHTML={{
 					__html: `
 // Wait for Silktide to load before configuring
 function initSilktideConfig() {
   console.log('Initializing Silktide config...');
+  console.log('silktideCookieBannerManager available:', typeof silktideCookieBannerManager);
+  
+  // Prevent multiple initializations
+  if (window.silktideInitialized) {
+    console.log('Silktide already initialized, skipping...');
+    return;
+  }
+  
   if (typeof silktideCookieBannerManager !== 'undefined') {
     console.log('Silktide manager found, configuring...');
-    silktideCookieBannerManager.updateCookieBannerConfig({
+    try {
+      silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: true
   },
@@ -108,6 +122,11 @@ function initSilktideConfig() {
     }
   ]
 });
+      console.log('Silktide configuration completed successfully');
+      window.silktideInitialized = true;
+    } catch (error) {
+      console.error('Error configuring Silktide:', error);
+    }
   } else {
     // Retry if Silktide hasn't loaded yet
     console.log('Silktide manager not found, retrying...');
