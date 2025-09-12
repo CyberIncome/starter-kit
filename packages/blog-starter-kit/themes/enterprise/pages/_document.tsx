@@ -4,12 +4,24 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
-				<script 
-					src="/consent-manager/silktide-consent-manager.js" 
-					async 
-					onLoad="console.log('Silktide script loaded successfully'); window.silktideLoaded = true; initSilktideConfig();"
-					onError="console.error('Failed to load Silktide script')"
-				></script>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+							var script = document.createElement('script');
+							script.src = '/consent-manager/silktide-consent-manager.js';
+							script.async = true;
+							script.onload = function() {
+								console.log('Silktide script loaded successfully');
+								window.silktideLoaded = true;
+								initSilktideConfig();
+							};
+							script.onerror = function() {
+								console.error('Failed to load Silktide script');
+							};
+							document.head.appendChild(script);
+						`,
+					}}
+				/>
 				<script
 					dangerouslySetInnerHTML={{
 					__html: `
