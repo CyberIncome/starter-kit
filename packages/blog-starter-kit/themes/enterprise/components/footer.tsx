@@ -149,7 +149,6 @@ export const Footer = () => {
 						</p>
 					</div>
 				</div>
-				<div id="choice-footer-msg" className="choice-foot-msg ccpa-msg-added"></div>
 			</Container>
 		</footer>
 	);
