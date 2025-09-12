@@ -8,8 +8,8 @@ export default function Document() {
 				<script 
 					src="/consent-manager/silktide-consent-manager.js" 
 					async 
-					onload="console.log('Silktide script loaded successfully'); window.silktideLoaded = true; initSilktideConfig();"
-					onerror="console.error('Failed to load Silktide script')"
+					onLoad="console.log('Silktide script loaded successfully'); window.silktideLoaded = true; initSilktideConfig();"
+					onError="console.error('Failed to load Silktide script')"
 				></script>
 				<script
 					dangerouslySetInnerHTML={{
