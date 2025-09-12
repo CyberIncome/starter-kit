@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Silktide Consent Manager CSS */
-@import url('/consent-manager/silktide-consent-manager.css');
-
 /* Silktide Consent Manager Overrides */
 #silktide-wrapper {
   --primaryColor: #533BE2 !important;

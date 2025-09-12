@@ -4,42 +4,17 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-							var script = document.createElement('script');
-							script.src = '/consent-manager/silktide-consent-manager.js';
-							script.async = true;
-							script.onload = function() {
-								console.log('Silktide script loaded successfully');
-								window.silktideLoaded = true;
-								initSilktideConfig();
-							};
-							script.onerror = function() {
-								console.error('Failed to load Silktide script');
-							};
-							document.head.appendChild(script);
-						`,
-					}}
-				/>
+				<link rel="stylesheet" id="silktide-consent-manager-css" href="/consent-manager/silktide-consent-manager.css" />
+				<script src="/consent-manager/silktide-consent-manager.js" async></script>
 				<script
 					dangerouslySetInnerHTML={{
 					__html: `
 // Wait for Silktide to load before configuring
 function initSilktideConfig() {
   console.log('Initializing Silktide config...');
-  console.log('silktideCookieBannerManager available:', typeof silktideCookieBannerManager);
-  
-  // Prevent multiple initializations
-  if (window.silktideInitialized) {
-    console.log('Silktide already initialized, skipping...');
-    return;
-  }
-  
   if (typeof silktideCookieBannerManager !== 'undefined') {
     console.log('Silktide manager found, configuring...');
-    try {
-      silktideCookieBannerManager.updateCookieBannerConfig({
+    silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: true
   },
@@ -133,11 +108,6 @@ function initSilktideConfig() {
     }
   ]
 });
-      console.log('Silktide configuration completed successfully');
-      window.silktideInitialized = true;
-    } catch (error) {
-      console.error('Error configuring Silktide:', error);
-    }
   } else {
     // Retry if Silktide hasn't loaded yet
     console.log('Silktide manager not found, retrying...');
